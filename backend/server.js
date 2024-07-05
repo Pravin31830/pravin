@@ -6,6 +6,10 @@ import connectMongoDB from './db/connectMongoDB.js';
 import mongoose from 'mongoose';
 import dotenv from 'dotenv';
 import nodemailer from 'nodemailer';
+<<<<<<< HEAD
+=======
+import config from '../config/default.json';
+>>>>>>> f63664f135f99d3af2d42135dbecf4c57018ef9f
 
 dotenv.config();
 
