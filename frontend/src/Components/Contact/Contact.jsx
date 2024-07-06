@@ -12,9 +12,8 @@ function Contact() {
 
   const handleSubmit = async (e) => {
     e.preventDefault();
-    console.log('API URL:', process.env.REACT_APP_API_URL);
     try {
-      const response = await fetch(`${process.env.REACT_APP_API_URL}/api/contact`, {
+      const response = await fetch(`/api/contact`, {
         method: 'POST',
         headers: {
           'Content-Type': 'application/json',
