@@ -1,5 +1,8 @@
 import styles from './Contactstyle.module.css';
 import { useState } from 'react';
+import dotenv from 'dotenv';
+
+dotenv.config();
 
 function Contact() {
   const [formData, setFormData] = useState({ name: '', email: '', message: '' });
@@ -11,7 +14,7 @@ function Contact() {
   const handleSubmit = async (e) => {
     e.preventDefault();
     try {
-      const response = await fetch('http://localhost:5000/api/contact', {
+      const response = await fetch(`${process.env.REACT_APP_API_URL}/api/contact`, {
         method: 'POST',
         headers: {
           'Content-Type': 'application/json',
@@ -19,12 +22,8 @@ function Contact() {
         body: JSON.stringify(formData),
       });
       if (response.ok) {
-        // Reset form data
         alert('Message sent successfully');
         setFormData({ name: '', email: '', message: '' });
-
-        // Show success toast
-        
       } else {
         console.log('Failed to send message');
       }
@@ -33,6 +32,7 @@ function Contact() {
       console.log('Error sending message');
     }
   };
+  
 
   return (
     <section id="contact" className={styles.container}>
