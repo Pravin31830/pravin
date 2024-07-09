@@ -34,14 +34,14 @@ function Hero() {
     </h1>
     <h2>Full Stack Developer</h2>
     <span>
-        <a href='https://twitter.com' target='_blank'>
+        <a href='https://x.com/Pravin3183' target='_blank'>
             <img src={TwitterIcon} alt='Twitter'/>
         </a>
-        <a href='https://github.com' target='_blank'>
-            <img src={GithubIcon} alt='Twitter'/>
+        <a href='https://github.com/Pravin31830' target='_blank'>
+            <img src={GithubIcon} alt='github'/>
         </a>
-        <a href='https://linkedin.com' target='_blank'>
-            <img src={LinkedinIcon} alt='Twitter'/>
+        <a href='https://www.linkedin.com/in/pravin-arulraj-70373b318/' target='_blank'>
+            <img src={LinkedinIcon} alt='Linkedin'/>
         </a>
     </span>
     <p className={styles.description}>Newly graduated MERN stack developer, equipped with the latest front-end and back-end technologies, seeking an opportunity to contribute to innovative software projects.</p>
