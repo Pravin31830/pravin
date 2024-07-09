@@ -8,7 +8,7 @@ import LinkedinLight from '../../assets/linkedin-light.svg'
 import TwitterDark from '../../assets/twitter-dark.svg'
 import GithubDark from '../../assets/github-dark.svg'
 import LinkedinDark from '../../assets/linkedin-dark.svg'
-import CV from '../../assets/cv.pdf'
+import CV from '../../assets/Pravin-Junior-MERN.pdf'
 import { useTheme } from '../../Common/ThemeContext'
 import checkMarkLight from '../../assets/checkmark-light.svg'
 
