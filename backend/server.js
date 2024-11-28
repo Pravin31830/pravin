@@ -44,7 +44,7 @@ app.post('/api/contact', async (req, res) => {
 
         // Send Email
         const mailOptions = {
-            from: process.env.GMAIL_USER,
+            from: email,
             to: process.env.GMAIL_USER,
             subject: 'New Contact Form Submission',
             text: `Name: ${name}\nEmail: ${email}\nMessage: ${message}`,
