@@ -35,24 +35,32 @@ const transporter = nodemailer.createTransport({
 });
 
 app.post('/api/contact', async (req, res) => {
-    const { name, email, message } = req.body;
+    try {
+        const { name, email, message } = req.body;
 
-    const newContact = new Contact({ name, email, message });
-    await newContact.save();
+        // Save to MongoDB
+        const newContact = new Contact({ name, email, message });
+        await newContact.save();
 
-    const mailOptions = {
-        from: 'process.env.GMAIL_USER',
-        to: 'process.env.GMAIL_USER',
-        subject: 'New Contact Form Submission',
-        text: `Name: ${name}\nEmail: ${email}\nMessage: ${message}`
-    };
+        // Send Email
+        const mailOptions = {
+            from: process.env.GMAIL_USER,
+            to: process.env.GMAIL_USER,
+            subject: 'New Contact Form Submission',
+            text: `Name: ${name}\nEmail: ${email}\nMessage: ${message}`,
+        };
 
-    transporter.sendMail(mailOptions, (error, info) => {
-        if (error) {
-            return res.status(500).json({ error: error.toString() });
-        }
-        res.status(200).json({ message: 'Message received and email sent successfully' });
-    });
+        transporter.sendMail(mailOptions, (error, info) => {
+            if (error) {
+                console.error("Email error:", error);
+                return res.status(500).json({ error: "Error sending email" });
+            }
+            res.status(200).json({ message: "Message sent successfully" });
+        });
+    } catch (error) {
+        console.error("Server error:", error);
+        res.status(500).json({ error: "Internal server error" });
+    }
 });
 
 if (process.env.NODE_ENV === 'production') {
